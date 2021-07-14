@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'xSKU_Example' do
+  pod 'xSKU', :path => '../'
+
+  target 'xSKU_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
