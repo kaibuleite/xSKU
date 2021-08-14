@@ -1,11 +1,11 @@
 PODS:
-  - xDefine (1.0.2)
-  - xExtension (1.0.8):
+  - xDefine (1.0.4)
+  - xExtension (1.1.1):
     - xDefine
-  - xKit (1.0.5):
+  - xKit (1.0.6):
     - xDefine
     - xExtension
-  - xSKU (1.0.0):
+  - xSKU (1.0.1):
     - xKit
 
 DEPENDENCIES:
@@ -22,10 +22,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  xDefine: 0df7b51c0e6edb71ca9fd667f728699d0a7a1b12
-  xExtension: f53765a72cdb40b8dd8106f37c426d7b4084ba05
-  xKit: bfae7a5e09e7e462ab93b29549c28f3eef5b2631
-  xSKU: ccce59363b1c7cdedf7dec13a6bb2d0a369c0377
+  xDefine: ca6c6eef825544db8b43409e66dbff05eca7ac58
+  xExtension: 70d1f6b92b268f1e36236f8be26ed86c72628a0b
+  xKit: 60f95439ecf0de4fa575b51801274be297f5bdb2
+  xSKU: 583a91e207fb5db16a2366204f1c39fce2f70b71
 
 PODFILE CHECKSUM: f3775f08ef5a651d2459812ce7c89f505fac2ad4
 
