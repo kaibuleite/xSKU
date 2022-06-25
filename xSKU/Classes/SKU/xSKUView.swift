@@ -129,7 +129,6 @@ public class xSKUView: xView {
     {
         guard idx >= 0 else { return }
         guard idx < self.itemViewArray.count else { return }
-        guard idx != self.currentChooseIdx else { return }
         self.updateItemsStyleDidEndChoose(idx: idx)
         self.chooseHandler?(idx)
     }
@@ -140,7 +139,9 @@ public class xSKUView: xView {
         self.setNeedsLayout()
         self.layoutIfNeeded()
         // 更新样式
-        self.updateItemStyleToNormal(at: self.currentChooseIdx)
+        if idx != self.currentChooseIdx {
+            self.updateItemStyleToNormal(at: self.currentChooseIdx)
+        }
         self.updateItemStyleToChoose(at: idx)
         // 保存idx
         self.currentChooseIdx = idx
@@ -168,8 +169,8 @@ public class xSKUView: xView {
     /// 获取指定的item
     private func getItem(at idx : Int) -> UIButton?
     {
-        guard idx >= 0 else { return nil}
-        guard idx < self.itemViewArray.count else { return nil}
+        guard idx >= 0 else { return nil }
+        guard idx < self.itemViewArray.count else { return nil }
         return self.itemViewArray[idx]
     }
     /// 清空旧规格控件
