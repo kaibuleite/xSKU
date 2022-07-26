@@ -1,12 +1,9 @@
 PODS:
-  - xDefine (1.0.4)
-  - xExtension (1.1.2):
+  - xDefine (1.0.5)
+  - xExtension (1.1.4):
     - xDefine
-  - xKit (1.1.3):
-    - xDefine
+  - xSKU (1.0.5):
     - xExtension
-  - xSKU (1.0.2):
-    - xKit
 
 DEPENDENCIES:
   - xSKU (from `../`)
@@ -15,18 +12,16 @@ SPEC REPOS:
   https://github.com/kaibuleite/xSpecs.git:
     - xDefine
     - xExtension
-    - xKit
 
 EXTERNAL SOURCES:
   xSKU:
     :path: "../"
 
 SPEC CHECKSUMS:
-  xDefine: ca6c6eef825544db8b43409e66dbff05eca7ac58
-  xExtension: c0850b5b3c3103c3e57a5be8acdd402daaf02c16
-  xKit: 9a36ad3ba289fa86bfb9999db7c2d6db49ef3b06
-  xSKU: 0cf0b12c75a78365585535981620d07a9bc20425
+  xDefine: 4d633701f2ee5ed5112c4be111ff0c43d49fb85d
+  xExtension: f932ec5d6498afe2dc4595adeda0514ee5658a6d
+  xSKU: dfb8ba43f79eb1e1d2749497dc904fbec6cedb2f
 
-PODFILE CHECKSUM: f3775f08ef5a651d2459812ce7c89f505fac2ad4
+PODFILE CHECKSUM: d03eb90a3e25a99fd6c33b28a5772b107474f746
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3
