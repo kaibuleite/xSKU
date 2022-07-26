@@ -25,10 +25,12 @@ public class xSKUConfig: NSObject {
     /// 选中边框颜色
     public var itemBorderChooseColor = UIColor.clear
     
-    /// 行间距
-    public var rowSpacing = CGFloat(0)
+    /// 等宽分列（0表示自适应宽度）
+    public var column = 0
     /// 列间距
     public var columnSpacing = CGFloat(0)
+    /// 行间距
+    public var rowSpacing = CGFloat(0)
     /// item指定高度(默认44)
     public var itemHeight = CGFloat(44)
     

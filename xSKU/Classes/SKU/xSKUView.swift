@@ -7,9 +7,8 @@
 
 import UIKit
 import xExtension
-import xKit
 
-public class xSKUView: xView {
+public class xSKUView: UIView {
 
     // MARK: - Handler
     /// 选中回调
@@ -20,18 +19,18 @@ public class xSKUView: xView {
     // MARK: - Public Property
     /// 配置
     public var config = xSKUConfig()
+    /// 当期那选中item
+    public var currentChooseIdx = 0
     
     // MARK: - Private Property
     /// 等宽分列（0表示自适应宽度）
-    private var column = 0
-    /// 当期那选中item
-    private var currentChooseIdx = 0
+    var column = 0
     /// 子控件
-    private var itemViewArray = [UIButton]()
+    var itemViewArray = [UIButton]()
     /// 选择回调
-    private var chooseHandler : xHandlerChooseItem?
+    var chooseHandler : xHandlerChooseItem?
     /// 刷新回调
-    private var reloadHandler : xHandlerReloadCompleted?
+    var reloadHandler : xHandlerReloadCompleted?
     
     // MARK: - 内存释放
     deinit {
@@ -40,6 +39,9 @@ public class xSKUView: xView {
     }
     
     // MARK: - Public Override Func
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+    }
     public override func layoutSubviews() {
         super.layoutSubviews()
         guard self.itemViewArray.count > 0 else { return }
