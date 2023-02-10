@@ -23,8 +23,6 @@ public class xSKUView: UIView {
     public var currentChooseIdx = 0
     
     // MARK: - Private Property
-    /// 等宽分列（0表示自适应宽度）
-    var column = 0
     /// 子控件
     var itemViewArray = [UIButton]()
     /// 选择回调
@@ -50,11 +48,11 @@ public class xSKUView: UIView {
         var frame = CGRect.zero
         frame.size.height = cfg.itemHeight
         var equalWidth = CGFloat.zero
-        if self.column != 0 {   // 等宽
-            equalWidth = (self.frame.width - cfg.columnSpacing * CGFloat(self.column - 1)) / CGFloat(self.column)
+        if cfg.column != 0 {   // 等宽
+            equalWidth = (self.frame.width - cfg.columnSpacing * CGFloat(cfg.column - 1)) / CGFloat(cfg.column)
         }
         for item in self.itemViewArray {
-            if self.column != 0 {
+            if cfg.column != 0 {
                 frame.size.width = equalWidth // 等宽
             } else {
                 // 计算宽度
@@ -87,7 +85,6 @@ public class xSKUView: UIView {
     ///   - column: 等宽分列,默认自适应
     ///   - handler: 回调
     public func reload(dataArray : [String],
-                       column : Int = 0,
                        completed handler1 : @escaping xHandlerReloadCompleted,
                        choose handler2 : @escaping xHandlerChooseItem)
     {
@@ -96,7 +93,6 @@ public class xSKUView: UIView {
             return
         }
         self.clearOldSkuItem()
-        self.column = column
         self.reloadHandler = handler1
         self.chooseHandler = handler2
         // 添加规格控件
