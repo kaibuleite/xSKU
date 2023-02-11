@@ -33,6 +33,8 @@ public class xSKUConfig: NSObject {
     public var rowSpacing = CGFloat(0)
     /// item指定高度(默认44)
     public var itemHeight = CGFloat(44)
+    /// item边距(默认8)
+    public var itemMarginEdgeInsets = UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 8)
     
     /// 圆角半径(默认0)
     public var cornerRadius = CGFloat.zero

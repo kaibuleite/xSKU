@@ -45,36 +45,29 @@ public class xSKUView: UIView {
         guard self.itemViewArray.count > 0 else { return }
         // 更新UI
         let cfg = self.config
-        var frame = CGRect.zero
-        frame.size.height = cfg.itemHeight
-        var equalWidth = CGFloat.zero
+        var itemFrame = CGRect.zero
+        itemFrame.size.height = cfg.itemHeight
         if cfg.column > 0 {   // 等宽
-            equalWidth = (self.frame.width - cfg.columnSpacing * CGFloat(cfg.column - 1)) / CGFloat(cfg.column)
+            itemFrame.size.width = (self.frame.width - cfg.columnSpacing * CGFloat(cfg.column - 1)) / CGFloat(cfg.column)
         }
         for item in self.itemViewArray {
-            if cfg.column > 0 {
-                frame.size.width = equalWidth // 等宽
-            } else {
-                // 计算宽度
-                frame.size.width = 0
-                if let lbl = item.titleLabel {
-                    let margin = UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 8)
-                    let size = lbl.xContentSize(margin: margin)
-                    frame.size.width = size.width
-                }
+            if cfg.column <= 0, let lbl = item.titleLabel {
+                // 自适应宽度
+                let size = lbl.xContentSize(margin: cfg.itemMarginEdgeInsets)
+                itemFrame.size.width = size.width
             }
-            if frame.origin.x + frame.width > self.bounds.width {
+            if itemFrame.origin.x + itemFrame.width > self.bounds.width {
                 // 换行
-                frame.origin.x = 0
-                frame.origin.y += (cfg.rowSpacing + frame.height)
+                itemFrame.origin.x = 0
+                itemFrame.origin.y += (cfg.rowSpacing + itemFrame.height)
             }
-            item.frame = frame
-            frame.origin.x += (frame.width + cfg.columnSpacing)
+            item.frame = itemFrame
+            itemFrame.origin.x += (cfg.columnSpacing + itemFrame.width)
         }
-        var ret = CGRect.zero
-        ret.size.width = self.bounds.width
-        ret.size.height = frame.origin.y + frame.height
-        self.reloadHandler?(ret)
+        // 更新frame
+        var frame = self.bounds
+        frame.size.height = itemFrame.origin.y + itemFrame.height
+        self.reloadHandler?(frame)
     }
     
     // MARK: - Public Func
@@ -120,6 +113,8 @@ public class xSKUView: UIView {
             self.addSubview(btn)
             self.itemViewArray.append(btn)
         }
+        // 更新布局
+        self.setNeedsLayout()
         self.layoutIfNeeded()
     }
     
@@ -135,9 +130,6 @@ public class xSKUView: UIView {
     /// 更新选中样式
     public func updateItemsStyleDidEndChoose(idx : Int)
     {
-        // 更新控件约束
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
         // 更新样式
         if idx != self.currentChooseIdx {
             self.updateItemStyleToNormal(at: self.currentChooseIdx)
