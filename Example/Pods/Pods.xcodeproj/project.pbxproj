@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03120672F49351903E1E79322486DB7B /* View+xEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C9D7DD4BDB2032D501882D23D536F /* View+xEdit.swift */; };
+		049170FC29C1C1A900968448 /* xSKUView+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049170FB29C1C1A900968448 /* xSKUView+Reload.swift */; };
+		049170FE29C1C1CF00968448 /* xSKUView+Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */; };
 		0A5F6798E3E25CA42E063B93333F8728 /* Path+xNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202BFCB41351F3D8F41D016A55F4254 /* Path+xNew.swift */; };
 		0CEA737E916A45FDC1CAD64935D36DFB /* Array+xFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D52762F11A5E3DA58F86F43E6EE90 /* Array+xFind.swift */; };
 		0F6928991D4C1D6C45BCB7096D81B7DB /* Image+xEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD597C3895B5033E836C332F04E2B8 /* Image+xEdit.swift */; };
@@ -121,7 +123,9 @@
 
 /* Begin PBXFileReference section */
 		001D003CADBAE3015A7B24E75747A252 /* xExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = xExtension.release.xcconfig; sourceTree = "<group>"; };
-		060E6FD293DBF915C096513B20CEEF71 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		049170FB29C1C1A900968448 /* xSKUView+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "xSKUView+Reload.swift"; sourceTree = "<group>"; };
+		049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "xSKUView+Kit.swift"; sourceTree = "<group>"; };
+		060E6FD293DBF915C096513B20CEEF71 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		0805FC3AE8AF36A99335BA4F863C014B /* Layer+xEdit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Layer+xEdit.swift"; path = "xExtension/Classes/Kit/Layer/Layer+xEdit.swift"; sourceTree = "<group>"; };
 		0BA6D5B08B0998E7B3CB10DCEA33BC5E /* String+xReplace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+xReplace.swift"; path = "xExtension/Classes/Object/String/String+xReplace.swift"; sourceTree = "<group>"; };
 		0C824FF4B68CB8B7E3547F2F216B3BD2 /* ViewController+xNew.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ViewController+xNew.swift"; path = "xExtension/Classes/Kit/ViewController/ViewController+xNew.swift"; sourceTree = "<group>"; };
@@ -159,7 +163,7 @@
 		71592C203C635B36A3297CA54A836C7A /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = xDefine/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7D1735CFD021FD39AD99EBB0F3940A38 /* Image+xToValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Image+xToValue.swift"; path = "xExtension/Classes/Kit/Image/Image+xToValue.swift"; sourceTree = "<group>"; };
-		7EA05F7DEEE739FBEB7F0B998A4E4AA9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7EA05F7DEEE739FBEB7F0B998A4E4AA9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7FB7FAE1958A7D5FE831D8869332BE04 /* Button+xNew.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Button+xNew.swift"; path = "xExtension/Classes/Kit/Button/Button+xNew.swift"; sourceTree = "<group>"; };
 		82896C0EE7F3A1B05BEE78673AA62C12 /* Pods-xSKU_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-xSKU_Example-Info.plist"; sourceTree = "<group>"; };
 		8434815E488D018E11C92357ED345E97 /* Pods-xSKU_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-xSKU_Tests"; path = Pods_xSKU_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +180,7 @@
 		9934F51FA5F888E340C86347FA6973BC /* Object+xInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Object+xInfo.swift"; path = "xExtension/Classes/Object/Other/Object+xInfo.swift"; sourceTree = "<group>"; };
 		9976710094B147BB6D53F961DB94DE6D /* Label+xRect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Label+xRect.swift"; path = "xExtension/Classes/Kit/Label/Label+xRect.swift"; sourceTree = "<group>"; };
 		9CE4DE31B42B1A77D7BF3B6A4C1B67A9 /* Lock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = xDefine/Classes/Function/Lock.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E43A9841620FFD563496BFDBF580194 /* String+xToValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+xToValue.swift"; path = "xExtension/Classes/Object/String/String+xToValue.swift"; sourceTree = "<group>"; };
 		9F3D68650D06BADBFE74479A38C4D608 /* String+xAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+xAlert.swift"; path = "xExtension/Classes/Object/String/String+xAlert.swift"; sourceTree = "<group>"; };
 		A1F98F82E62CF2C9FE3BB8C44ABEAFF5 /* xSKU-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "xSKU-prefix.pch"; sourceTree = "<group>"; };
@@ -200,7 +204,7 @@
 		D094611A4965BC98D68149CD422683DE /* View.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = View.swift; path = xDefine/Classes/Value/View.swift; sourceTree = "<group>"; };
 		D0EA939CCDAB2C7B57DB52CFEA16517E /* Random.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Random.swift; path = xDefine/Classes/Function/Random.swift; sourceTree = "<group>"; };
 		D23E0D75555D3BBC676208EBE893EC5E /* View+xLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "View+xLayout.swift"; path = "xExtension/Classes/Kit/View/View+xLayout.swift"; sourceTree = "<group>"; };
-		D243FE99132E105CF38469BC80708C21 /* xSKU.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = xSKU.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D243FE99132E105CF38469BC80708C21 /* xSKU.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = xSKU.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D34B05EF7582CE586423134632BB1C55 /* xDefine */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = xDefine; path = xDefine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4182AE7577B7A291B0A14D3DD5716F7 /* String+xRect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+xRect.swift"; path = "xExtension/Classes/Object/String/String+xRect.swift"; sourceTree = "<group>"; };
 		D4351C31F7FC5D9456557C5D63AC4805 /* Color+xNew.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Color+xNew.swift"; path = "xExtension/Classes/Kit/Color/Color+xNew.swift"; sourceTree = "<group>"; };
@@ -362,7 +366,6 @@
 				D094611A4965BC98D68149CD422683DE /* View.swift */,
 				D81C01EF7BB7AFAD57D92D3D207F5C53 /* Support Files */,
 			);
-			name = xDefine;
 			path = xDefine;
 			sourceTree = "<group>";
 		};
@@ -395,6 +398,8 @@
 			children = (
 				A20237722D38B97507858EE6FFCEF1D8 /* xSKUConfig.swift */,
 				86A804000FD3718D3257A232EFAE2C07 /* xSKUView.swift */,
+				049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */,
+				049170FB29C1C1A900968448 /* xSKUView+Reload.swift */,
 			);
 			name = SKU;
 			path = xSKU/Classes/SKU;
@@ -471,7 +476,6 @@
 				2EBB8FEEC08B79E4FC88E57EB9E14B04 /* ViewController+xTabbar.swift */,
 				97A2B5EE6D228735A14FF0C60A7E0CD2 /* Support Files */,
 			);
-			name = xExtension;
 			path = xExtension;
 			sourceTree = "<group>";
 		};
@@ -792,7 +796,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049170FE29C1C1CF00968448 /* xSKUView+Kit.swift in Sources */,
 				C3F940029D9BAB36EB362BD86F5FAC49 /* ReplaceMe.swift in Sources */,
+				049170FC29C1C1A900968448 /* xSKUView+Reload.swift in Sources */,
 				F0CC023493BD5626B863660D861E7F55 /* xSKU-dummy.m in Sources */,
 				B009A257D96BB70C0532C7A4F9010C0E /* xSKUConfig.swift in Sources */,
 				AC453DD1534DB7F3741BA6AF87D1F9D7 /* xSKUView.swift in Sources */,
@@ -1037,8 +1043,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
