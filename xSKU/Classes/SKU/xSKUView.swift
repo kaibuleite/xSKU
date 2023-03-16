@@ -23,10 +23,6 @@ public class xSKUView: UIView {
     public var currentChooseIdx = 0
     /// 数据源
     public var dataArray = [String]()
-    /// 选中的Item标题
-    public var chooseItemTitleArray = [String]()
-    /// 选中的Item编号
-    public var chooseItemIndexArray = [Int]() 
     /// 子控件
     var itemArray = [UIButton]()
     /// 选中的子控件

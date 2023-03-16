@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03120672F49351903E1E79322486DB7B /* View+xEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1C9D7DD4BDB2032D501882D23D536F /* View+xEdit.swift */; };
+		041C440229C303E0004249BE /* xSKUView+Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C440129C303E0004249BE /* xSKUView+Func.swift */; };
 		049170FC29C1C1A900968448 /* xSKUView+Reload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049170FB29C1C1A900968448 /* xSKUView+Reload.swift */; };
 		049170FE29C1C1CF00968448 /* xSKUView+Kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */; };
 		0A5F6798E3E25CA42E063B93333F8728 /* Path+xNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1202BFCB41351F3D8F41D016A55F4254 /* Path+xNew.swift */; };
@@ -123,6 +124,7 @@
 
 /* Begin PBXFileReference section */
 		001D003CADBAE3015A7B24E75747A252 /* xExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = xExtension.release.xcconfig; sourceTree = "<group>"; };
+		041C440129C303E0004249BE /* xSKUView+Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "xSKUView+Func.swift"; sourceTree = "<group>"; };
 		049170FB29C1C1A900968448 /* xSKUView+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "xSKUView+Reload.swift"; sourceTree = "<group>"; };
 		049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "xSKUView+Kit.swift"; sourceTree = "<group>"; };
 		060E6FD293DBF915C096513B20CEEF71 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				86A804000FD3718D3257A232EFAE2C07 /* xSKUView.swift */,
 				049170FD29C1C1CE00968448 /* xSKUView+Kit.swift */,
 				049170FB29C1C1A900968448 /* xSKUView+Reload.swift */,
+				041C440129C303E0004249BE /* xSKUView+Func.swift */,
 			);
 			name = SKU;
 			path = xSKU/Classes/SKU;
@@ -797,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				049170FE29C1C1CF00968448 /* xSKUView+Kit.swift in Sources */,
+				041C440229C303E0004249BE /* xSKUView+Func.swift in Sources */,
 				C3F940029D9BAB36EB362BD86F5FAC49 /* ReplaceMe.swift in Sources */,
 				049170FC29C1C1A900968448 /* xSKUView+Reload.swift in Sources */,
 				F0CC023493BD5626B863660D861E7F55 /* xSKU-dummy.m in Sources */,

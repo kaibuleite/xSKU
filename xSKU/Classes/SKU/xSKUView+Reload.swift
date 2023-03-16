@@ -27,8 +27,6 @@ extension xSKUView {
         if column >= 0 { self.config.column = column }
         self.dataArray = dataArray
         self.chooseItemArray = .init(repeating: nil, count: dataArray.count)
-        self.chooseItemTitleArray.removeAll()
-        self.chooseItemIndexArray.removeAll()
         // 清空旧规格控件
         for item in self.itemArray {
             item.xRemoveClickHandler()
@@ -61,38 +59,6 @@ extension xSKUView {
         // 更新布局
         self.setNeedsLayout()
         self.layoutIfNeeded()
-    }
-    
-    // MARK: - 选中
-    /// 选中
-    public func choose(idx : Int)
-    {
-        guard let item = self.itemArray.xObject(at: idx) else { return }
-        if self.config.isMultiEnable {
-            // 多选模式
-            if self.chooseItemArray[idx] != nil {
-                self.chooseItemArray[idx] = nil
-                self.updateItemStyleToNormal(at: idx)
-            } else {
-                self.chooseItemArray[idx] = item
-                self.updateItemStyleToChoose(at: idx)
-            }
-            self.chooseItemTitleArray.removeAll()
-            self.chooseItemIndexArray.removeAll()
-            for obj in chooseItemArray {
-                guard let item = obj else { continue }
-                self.chooseItemTitleArray.append(item.currentTitle ?? "")
-                self.chooseItemIndexArray.append(item.tag)
-            }
-        } else {
-            // 单选模式
-            if idx != self.currentChooseIdx {
-                self.updateItemStyleToNormal(at: self.currentChooseIdx)
-            }
-            self.updateItemStyleToChoose(at: idx)
-        }
-        self.currentChooseIdx = idx
-        self.chooseHandler?(idx)
     }
     
 }
