@@ -25,8 +25,10 @@ extension xSKUView {
         }
         // 保存数据
         if column >= 0 { self.config.column = column }
+        let count = dataArray.count
         self.dataArray = dataArray
-        self.chooseItemArray = .init(repeating: nil, count: dataArray.count)
+        self.chooseItemArray = .init(repeating: nil, count: count)
+        self.chooseFlagArray = .init(repeating: false, count: count)
         // 清空旧规格控件
         for item in self.itemArray {
             item.xRemoveClickHandler()

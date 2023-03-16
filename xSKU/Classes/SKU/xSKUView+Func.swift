@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import xExtension
 
 extension xSKUView {
     
@@ -15,7 +16,7 @@ extension xSKUView {
     {
         if self.config.isMultiEnable {
             // 多选模式
-            if self.chooseItemArray[idx] != nil {
+            if self.chooseItemArray.xObject(at: idx) != nil {
                 self.updateItemStyleToNormal(at: idx)
             } else {
                 self.updateItemStyleToChoose(at: idx)
@@ -27,7 +28,6 @@ extension xSKUView {
             }
             self.updateItemStyleToChoose(at: idx)
         }
-        self.currentChooseIdx = idx
         self.chooseHandler?(idx)
     }
     
@@ -53,4 +53,11 @@ extension xSKUView {
         return list
     }
     
+    // MARK: - 判断Item是否选中
+    /// 判断Item是否选中
+    public func checkItemIsChoose(at idx : Int) -> Bool
+    {
+        let flag = self.chooseFlagArray.xObject(at: idx)
+        return flag ?? false
+    }
 }

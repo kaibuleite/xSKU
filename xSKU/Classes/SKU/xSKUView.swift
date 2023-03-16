@@ -27,6 +27,8 @@ public class xSKUView: UIView {
     var itemArray = [UIButton]()
     /// 选中的子控件
     var chooseItemArray = [UIButton?]()
+    /// 选中的子控件
+    var chooseFlagArray = [Bool]()
     /// 选择回调
     var chooseHandler : xHandlerChooseItem?
     /// 刷新回调
