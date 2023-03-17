@@ -31,9 +31,9 @@ extension xSKUView {
         item.layer.borderColor = cfg.border.color.choose.cgColor
         item.setTitleColor(cfg.titleColor.choose, for: .normal)
         
+        self.currentChooseIdx = idx
         self.chooseItemArray[idx] = item
         self.chooseFlagArray[idx] = true
-        self.currentChooseIdx = idx
     }
     
 }

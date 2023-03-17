@@ -16,7 +16,7 @@ extension xSKUView {
     {
         if self.config.isMultiEnable {
             // 多选模式
-            if self.chooseItemArray.xObject(at: idx) != nil {
+            if self.checkItemIsChoose(at: idx) {
                 self.updateItemStyleToNormal(at: idx)
             } else {
                 self.updateItemStyleToChoose(at: idx)
