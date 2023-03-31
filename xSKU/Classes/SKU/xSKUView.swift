@@ -19,14 +19,12 @@ public class xSKUView: UIView {
     // MARK: - Public Property
     /// 配置
     public var config = xSKUConfig()
-    /// 当前那选中item
+    /// 当前那选中idx
     public var currentChooseIdx = 0
-    /// 数据源
-    public var dataArray = [String]()
     /// 子控件
-    var itemArray = [UIButton]()
+    public var itemArray = [UIView]()
     /// 选中的子控件
-    var chooseItemArray = [UIButton?]()
+    var chooseItemArray = [UIView?]()
     /// 选中的子控件
     var chooseFlagArray = [Bool]()
     /// 选择回调
@@ -47,21 +45,22 @@ public class xSKUView: UIView {
     public override func layoutSubviews() {
         super.layoutSubviews()
         guard self.itemArray.count > 0 else { return }
-        // 更新UI
+        // 重新计算位置
         let cfg = self.config
-        var itemFrame = CGRect.zero
-        itemFrame.size.height = cfg.itemHeight
-        if cfg.column > 0 {   // 等宽
-            itemFrame.size.width = (self.frame.width - cfg.columnSpacing * CGFloat(cfg.column - 1)) / CGFloat(cfg.column)
-        }
+        var itemFrame = CGRect.zero 
+        let equalWidth = (self.frame.width - cfg.columnSpacing * CGFloat(cfg.column - 1)) / CGFloat(cfg.column)
         for item in self.itemArray {
-            if cfg.column <= 0, let lbl = item.titleLabel {
-                // 自适应宽度
-                let size = lbl.xContentSize(margin: cfg.itemMarginEdgeInsets)
-                itemFrame.size.width = size.width
+            itemFrame.size = item.frame.size
+            // 宽度
+            if itemFrame.size.width == 0 || cfg.column > 0 {
+                itemFrame.size.width = equalWidth
             }
+            // 高度
+            if itemFrame.size.height == 0 {
+                itemFrame.size.height = cfg.itemHeight
+            }
+            // 换行
             if itemFrame.origin.x + itemFrame.width > self.bounds.width {
-                // 换行
                 itemFrame.origin.x = 0
                 itemFrame.origin.y += (cfg.rowSpacing + itemFrame.height)
             }
@@ -74,13 +73,4 @@ public class xSKUView: UIView {
         self.reloadHandler?(frame)
     }
     
-    // MARK: - 添加回调
-    public func addChooseItem(handler : @escaping xSKUView.xHandlerChooseItem)
-    {
-        self.chooseHandler = handler
-    }
-    public func addReloadCompleted(handler : @escaping xSKUView.xHandlerReloadCompleted)
-    {
-        self.reloadHandler = handler
-    }
 }

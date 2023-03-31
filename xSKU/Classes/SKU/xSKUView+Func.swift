@@ -10,6 +10,16 @@ import xExtension
 
 extension xSKUView {
     
+    // MARK: - 添加回调
+    public func addChooseItem(handler : @escaping xSKUView.xHandlerChooseItem)
+    {
+        self.chooseHandler = handler
+    }
+    public func addReloadCompleted(handler : @escaping xSKUView.xHandlerReloadCompleted)
+    {
+        self.reloadHandler = handler
+    }
+    
     // MARK: - 选中
     /// 选中
     public func choose(idx : Int)
@@ -36,9 +46,17 @@ extension xSKUView {
     public func getChooseItemNameArray() -> [String]
     {
         var list = [String]()
-        for obj in chooseItemArray {
+        for obj in self.chooseItemArray {
             guard let item = obj else { continue }
-            list.append(item.currentTitle ?? "")
+            if let obj = item as? UIButton {
+                list.append(obj.currentTitle ?? "")
+            } else
+            if let obj = item as? UILabel {
+                list.append(obj.text ?? "")
+            } else
+            if let obj = item as? xSKUItem {
+                list.append(obj.title)
+            }
         }
         return list
     }
@@ -46,7 +64,7 @@ extension xSKUView {
     public func getChooseItemIndexArray() -> [Int]
     {
         var list = [Int]()
-        for obj in chooseItemArray {
+        for obj in self.chooseItemArray {
             guard let item = obj else { continue }
             list.append(item.tag)
         }

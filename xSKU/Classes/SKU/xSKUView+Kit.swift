@@ -17,8 +17,15 @@ extension xSKUView {
         let cfg = self.config
         item.backgroundColor = cfg.backgroundColor.normal
         item.layer.borderColor = cfg.border.color.normal.cgColor
-        item.setTitleColor(cfg.titleColor.normal, for: .normal)
-        
+        if let obj = item as? UIButton {
+            obj.setTitleColor(cfg.titleColor.normal, for: .normal)
+        } else
+        if let obj = item as? UILabel {
+            obj.textColor = cfg.titleColor.normal
+        } else
+        if let obj = item as? xSKUItem {
+            obj.updateNormalStyle()
+        }
         self.chooseItemArray[idx] = nil
         self.chooseFlagArray[idx] = false
     }
@@ -29,8 +36,15 @@ extension xSKUView {
         let cfg = self.config
         item.backgroundColor = cfg.backgroundColor.choose
         item.layer.borderColor = cfg.border.color.choose.cgColor
-        item.setTitleColor(cfg.titleColor.choose, for: .normal)
-        
+        if let obj = item as? UIButton {
+            obj.setTitleColor(cfg.titleColor.choose, for: .normal)
+        } else
+        if let obj = item as? UILabel {
+            obj.textColor = cfg.titleColor.choose
+        } else
+        if let obj = item as? xSKUItem {
+            obj.updateChooseStyle()
+        }
         self.currentChooseIdx = idx
         self.chooseItemArray[idx] = item
         self.chooseFlagArray[idx] = true

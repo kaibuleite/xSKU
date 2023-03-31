@@ -1,8 +1,8 @@
 PODS:
-  - xDefine (1.0.5)
-  - xExtension (1.1.4):
+  - xDefine (1.0.6)
+  - xExtension (1.1.6):
     - xDefine
-  - xSKU (1.0.5):
+  - xSKU (1.1.2):
     - xExtension
 
 DEPENDENCIES:
@@ -18,9 +18,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  xDefine: 4d633701f2ee5ed5112c4be111ff0c43d49fb85d
-  xExtension: f932ec5d6498afe2dc4595adeda0514ee5658a6d
-  xSKU: dfb8ba43f79eb1e1d2749497dc904fbec6cedb2f
+  xDefine: 74915e20fdc2bb56dc50e981684d532baa7200ab
+  xExtension: ad23e756488b0b352b253626375ec6a77459538b
+  xSKU: 168d4875d8d1312003e9bc0762b21952b210d19f
 
 PODFILE CHECKSUM: d03eb90a3e25a99fd6c33b28a5772b107474f746
 
