@@ -50,4 +50,52 @@ public class xSKUConfig: NSObject {
     /// item边距(默认8，自适应计算宽度后留空)
     public var itemMarginEdgeInsets = UIEdgeInsets.init(top: 0, left: 8, bottom: 0, right: 8)
     
+    // MARK: - 更新配置
+    /// 更新基本配置
+    /// - Parameters:
+    ///   - column: 指定列数（0表示自适应宽度）
+    ///   - fontSize: 字体大小
+    ///   - multipleChoice: 是否可以多选
+    public func updateBasic(column : Int = 0,
+                            fontSize : CGFloat,
+                            multipleChoice : Bool = false)
+    {
+        self.column = column
+        self.fontSize = fontSize
+        self.isMultiEnable = multipleChoice
+    }
+    /// 更新颜色配置
+    /// - Parameters:
+    ///   - title: 标题颜色
+    ///   - background: 背景颜色
+    public func updateColor(title : xSKUItemColor,
+                            background : xSKUItemColor)
+    {
+        self.titleColor = title
+        self.backgroundColor = background
+    }
+    /// 更新边框配置
+    /// - Parameters:
+    ///   - color: 边框颜色
+    ///   - width: 边框线条宽度
+    ///   - radius: 圆角半径
+    public func updateBorder(color : xSKUItemColor,
+                             width : CGFloat,
+                             radius : CGFloat)
+    {
+        self.border.color = color
+        self.border.width = width
+        self.border.cornerRadius = radius
+    }
+    /// 更新间距配置
+    /// - Parameters:
+    ///   - column: 列间距
+    ///   - row: 行间距
+    public func updateSpacing(column: CGFloat,
+                              row: CGFloat)
+    {
+        self.columnSpacing = column
+        self.rowSpacing = row
+    }
+    
 }

@@ -51,7 +51,7 @@ extension xSKUView {
     /// 加载自定义组件数据(view的frame自己设)
     /// - Parameters:
     ///   - itemViewArray: 视图列表
-    ///   - handler: 回调
+    ///   - column: 指定列数,默认自适应   
     public func reload(itemViewArray : [UIView],
                        column : Int = -1)
     {
