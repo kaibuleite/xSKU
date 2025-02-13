@@ -55,7 +55,7 @@ extension xSKUView {
                 list.append(obj.text ?? "")
             } else
             if let obj = item as? xSKUItem {
-                list.append(obj.title)
+                list.append(obj.titleLbl?.text ?? "")
             }
         }
         return list
@@ -78,4 +78,5 @@ extension xSKUView {
         let flag = self.chooseFlagArray.xObject(at: idx)
         return flag ?? false
     }
+    
 }

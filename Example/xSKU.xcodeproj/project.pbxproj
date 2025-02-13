@@ -212,10 +212,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = CXHGP7M6ZP;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = CXHGP7M6ZP;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -491,6 +493,7 @@
 			baseConfigurationReference = 42751E0B33EF89936E4CEC83 /* Pods-xSKU_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CXHGP7M6ZP;
 				INFOPLIST_FILE = xSKU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -507,6 +510,7 @@
 			baseConfigurationReference = B431D748F68DC6796AD2EC81 /* Pods-xSKU_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CXHGP7M6ZP;
 				INFOPLIST_FILE = xSKU/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -522,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53DE82E4AF1E9A44171B4660 /* Pods-xSKU_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = CXHGP7M6ZP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -545,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F73097D91C934873C5D17B7 /* Pods-xSKU_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = CXHGP7M6ZP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

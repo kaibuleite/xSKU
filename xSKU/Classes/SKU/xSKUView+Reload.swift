@@ -16,56 +16,53 @@ extension xSKUView {
     /// - Parameters:
     ///   - dataArray: 数据源
     ///   - column: 等宽分列,默认自适应
-    public func reload(dataArray : [String],
-                       column : Int = -1)
+    public func reload(dataArray : [String])
     {
         guard dataArray.count > 0 else {
             print("⚠️ SKU没有数据")
             return
-        } 
+        }
         // 创建新控件
         let cfg = self.config
-        let font = UIFont.systemFont(ofSize: cfg.fontSize)
-        var list = [UIView]()
-        for (i, title) in dataArray.enumerated() {
-            let btn = UIButton(type: .system)
-            btn.tag = i
-            btn.contentHorizontalAlignment = .center
-            btn.setTitle(title, for: .normal)
-            // 计算宽高
-            if let lbl = btn.titleLabel {
-                lbl.font = font
-                let size = lbl.xContentSize(margin: cfg.itemMarginEdgeInsets)
-                var frame = CGRect.zero
-                frame.size = size
-                if cfg.itemHeight > 0 {
-                    frame.size.height = cfg.itemHeight
-                }
-                btn.frame = frame
-            }
-            list.append(btn)
+        var list = [xSKUItem]()
+        
+        for title in dataArray {
+            let item = xSKUItem.loadXib()
+            let lbl = item.titleLbl!
+            lbl.numberOfLines = cfg.titleLines
+            lbl.font = cfg.font.normal
+            lbl.text = title
+            // 计算内容宽度
+            var frame = CGRect.zero
+            var contentWidth = title.xContentWidth(for: cfg.font.normal,
+                                                   height: cfg.itemHeight)
+            contentWidth += cfg.itemMargin.left
+            contentWidth += cfg.itemMargin.right
+            frame.size.width = contentWidth
+            // 是否固定宽高
+            if cfg.itemWidth > 0 { frame.size.width = cfg.itemWidth }
+            if cfg.itemHeight > 0 { frame.size.height = cfg.itemHeight }
+            
+            item.frame = frame
+            list.append(item)
         }
-        self.reload(itemViewArray: list, column: column)
+        self.reload(itemViewArray: list)
     }
     
     /// 加载自定义组件数据(view的frame自己设)
     /// - Parameters:
     ///   - itemViewArray: 视图列表
-    ///   - column: 指定列数,默认自适应   
-    public func reload(itemViewArray : [UIView],
-                       column : Int = -1)
+    ///   - column: 指定列数,默认自适应
+    public func reload(itemViewArray : [UIView])
     {
         guard itemViewArray.count > 0 else {
             print("⚠️ SKU没有数据")
             return
         }
-        // 清空旧规格控件
-        for item in self.itemArray {
-            item.removeFromSuperview()
-        }
+        // 移除旧控件
+        self.xRemoveAllSubViews()
         self.itemArray.removeAll()
         // 保存数据
-        if column >= 0 { self.config.column = column }
         let count = itemViewArray.count
         self.itemArray = itemViewArray
         self.chooseItemArray = .init(repeating: nil, count: count)
@@ -78,39 +75,20 @@ extension xSKUView {
             item.layer.masksToBounds = true
             item.layer.cornerRadius = cfg.border.cornerRadius
             item.layer.borderWidth = cfg.border.width
-            item.layer.borderColor = cfg.border.color.normal.cgColor
-            item.backgroundColor = cfg.backgroundColor.normal
-            // TODO: 按钮
-            if let obj = item as? UIButton {
-                obj.setTitleColor(cfg.titleColor.normal, for: .normal) 
-                // 添加响应事件
-                obj.xAddClick {
-                    [unowned self] (sender) in
-                    let idx = sender.tag
-                    self.choose(idx: idx)
-                }
-            } else
-            // TODO: 标签
-            if let obj = item as? UILabel {
-                obj.textColor = cfg.titleColor.normal
-                // 添加响应事件
-                obj.isUserInteractionEnabled = true
-                let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapItem(_:)))
-                obj.addGestureRecognizer(tap)
-            } else
-            // TODO: 自定义视图
-            if let obj = item as? xSKUItem {
-                obj.updateNormalStyle()
-                // 添加响应事件
-                obj.isUserInteractionEnabled = true
-                let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapItem(_:)))
-                obj.addGestureRecognizer(tap)
-            }
+            self.updateItemStyleToNormal(at: i)
+            // 保存Frame
+            self.itemFrameArray.append(item.frame)
             self.addSubview(item)
+            // 添加响应事件
+            let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapItem(_:)))
+            item.addGestureRecognizer(tap)
+            item.isUserInteractionEnabled = true
         }
         // 更新布局
         self.setNeedsLayout()
         self.layoutIfNeeded()
+        // 默认选中第一个数据
+//        self.updateItemStyleToChoose(at: 0)
     }
     
     // MARK: - 点击手势

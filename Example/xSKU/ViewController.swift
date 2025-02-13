@@ -52,19 +52,20 @@ class ViewController: UIViewController {
         
         let config = sku.config
         let random = (arc4random() % 2 == 0)
-        config.isMultiEnable = random
-        config.fontSize = 15
-        config.titleColor.normal = .xNewRandom()
-        config.titleColor.choose = .xNewRandom()
-        config.backgroundColor.normal = .xNewRandom(alpha: 0.5)
-        config.backgroundColor.choose = .xNewRandom(alpha: 0.5)
-        config.border.color.normal = .xNewRandom()
-        config.border.color.choose = .xNewRandom()
-        config.border.cornerRadius = 4
-        config.border.width = (random ? 0 : 1)
-        config.columnSpacing = 10
-        config.rowSpacing = 10
-        config.itemHeight = 30 + CGFloat.xNewRandom(max: 10)
+        config.updateBasic(column: (random ? 0 : 5),
+                           titleLines: 1,
+                           multipleChoice: random)
+        config.updateSpacing(column: 10,
+                             row: 10)
+        config.updateItem(height: 30 + CGFloat.xNewRandom(max: 10),
+                          margin: .init(top: 0, left: 8, bottom: 0, right: 8))
+        config.updateFont(normal: .systemFont(ofSize: 14),
+                          choose: .boldSystemFont(ofSize: 15))
+        config.updateColor(title: .xNewRandom(),
+                           background: .xNewRandom(alpha: 0.3))
+        config.updateBorder(color: .xNewRandom(),
+                            width: (random ? 0 : 1),
+                            radius: 4)
     }
 
     
@@ -77,10 +78,16 @@ class ViewController: UIViewController {
         self.initSKU(self.sku2)
         self.initSKU(self.sku3)
         
-        let list1 = ["泉州", "厦门", "哈尔滨", "呼和浩特", "武汉", "重庆", "乌鲁木齐", "天津", "晋江", "华盛顿", "伦敦", "巴黎", "长安"]
+        let list1 = ["泉州", "厦门", "哈尔滨", "呼和浩特", 
+                     "武汉", "重庆", "乌鲁木齐", "天津",
+                     "晋江", "华盛顿", "伦敦", "巴黎", "长安"]
         self.sku1.reload(dataArray: list1)
         
-        let arr2 = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "🍇", "🍓", "🍈", "🍒", "🍑", "🍍", "🥝", "🥑", "🍅", "🍆", "🥒", "🥕", "🌶", "🥔", "🌽", "🍠", "🥜", "🍯", "🥐", "🍞", "🥖", "🧀", "🥚", "🥓", "🥞", "🍗", "🍖"]
+        let arr2 = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", 
+                    "🍇", "🍓", "🍈", "🍒", "🍑", "🍍", "🥝",
+                    "🥑", "🍅", "🍆", "🥒", "🥕", "🌶", "🥔",
+                    "🌽", "🍠", "🥜", "🍯", "🥐", "🍞", "🥖",
+                    "🧀", "🥚", "🥓", "🥞", "🍗", "🍖"]
         var list2 = [UILabel]()
         for str in arr2 {
             let lbl = UILabel()
@@ -90,12 +97,11 @@ class ViewController: UIViewController {
             list2.append(lbl)
         }
         // 等宽排列不用设置frame
-        self.sku2.reload(itemViewArray: list2, column: 6)
+        self.sku2.reload(itemViewArray: list2)
         
         var list3 = [xSKUItem]()
         for _ in 0 ..< 20 {
-            let view = xSKUItem()
-            view.backgroundColor = .xNewRandom()
+            let view = xSKUItem.loadXib() 
             view.frame = CGRect.init(x: 0, y: 0, width: 30 + CGFloat.xNewRandom(max: 50), height: 30)
             list3.append(view)
         }
