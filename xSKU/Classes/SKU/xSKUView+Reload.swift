@@ -62,6 +62,7 @@ extension xSKUView {
         // 移除旧控件
         self.xRemoveAllSubViews()
         self.itemArray.removeAll()
+        self.itemFrameArray.removeAll()
         // 保存数据
         let count = itemViewArray.count
         self.itemArray = itemViewArray
