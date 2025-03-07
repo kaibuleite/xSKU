@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'xSKU'
-  s.version          = '1.2.1'
+  s.version          = '1.2.2'
   s.summary          = 'A short description of xSKU.'
   s.swift_version    = '5'      # Swift版本号
 

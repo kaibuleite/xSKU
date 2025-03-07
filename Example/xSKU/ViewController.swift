@@ -52,9 +52,6 @@ class ViewController: UIViewController {
         
         let config = sku.config
         let random = (arc4random() % 2 == 0)
-        config.updateBasic(column: (random ? 0 : 5),
-                           titleLines: 1,
-                           multipleChoice: random)
         config.updateSpacing(column: 10,
                              row: 10)
         config.updateItem(height: 30 + CGFloat.xNewRandom(max: 10),
@@ -81,6 +78,8 @@ class ViewController: UIViewController {
         let list1 = ["泉州", "厦门", "哈尔滨", "呼和浩特", 
                      "武汉", "重庆", "乌鲁木齐", "天津",
                      "晋江", "华盛顿", "伦敦", "巴黎", "长安"]
+        self.sku1.config.updateBasic(column: 0)
+        self.sku1.config.updateMultiple(enable: true)
         self.sku1.reload(dataArray: list1)
         
         let arr2 = ["🍏", "🍎", "🍐", "🍊", "🍋", "🍌", "🍉", 
@@ -96,7 +95,8 @@ class ViewController: UIViewController {
             lbl.textAlignment = .center
             list2.append(lbl)
         }
-        // 等宽排列不用设置frame
+        self.sku2.config.updateBasic(column: 8)
+        self.sku2.config.updateMultiple(enable: true, count: 6)
         self.sku2.reload(itemViewArray: list2)
         
         var list3 = [xSKUItem]()

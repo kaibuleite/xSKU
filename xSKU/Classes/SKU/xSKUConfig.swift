@@ -92,6 +92,8 @@ public class xSKUConfig: NSObject {
     // MARK: - Public Property
     /// 是否支持多选
     public var isMultiEnable = false
+    /// 多选数量
+    public var multipleCount = 0
     /// 字体
     public var font = xSKUItemFont.init(normal: .systemFont(ofSize: 14),
                                         choose: .boldSystemFont(ofSize: 15))
@@ -126,14 +128,21 @@ public class xSKUConfig: NSObject {
     /// - Parameters:
     ///   - column: 指定列数（0表示自适应宽度）
     ///   - titleLines: 标题行数(默认1行)
-    ///   - multipleChoice: 是否可以多选
     public func updateBasic(column : Int = 0,
-                            titleLines : Int = 1,
-                            multipleChoice : Bool = false)
+                            titleLines : Int = 1)
     {
         self.column = column
         self.titleLines = titleLines
-        self.isMultiEnable = multipleChoice
+    }
+    /// 更新多选配置
+    /// - Parameters:
+    ///   - enable: 是否可以多选
+    ///   - count: 多选数量 (0表示无限制数量)
+    public func updateMultiple(enable : Bool,
+                               count : Int = 0)
+    {
+        self.isMultiEnable = enable
+        self.multipleCount = count
     }
     /// 更新字体配置
     /// - Parameters:

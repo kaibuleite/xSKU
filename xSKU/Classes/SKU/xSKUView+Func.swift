@@ -31,6 +31,24 @@ extension xSKUView {
             } else {
                 self.updateItemStyleToChoose(at: idx)
             }
+            // 已选选项数量
+            let curChooseIdxArr = self.getChooseItemIndexArray()
+            let curChooseCount = curChooseIdxArr.count
+            // 最多选择数量
+            var maxChooseCount = self.config.multipleCount
+            if maxChooseCount > self.itemArray.count {
+                maxChooseCount = self.itemArray.count
+            }
+            if curChooseCount > maxChooseCount, maxChooseCount > 0 {
+                let firstIdx = curChooseIdxArr.first ?? 0
+                let lastIdx = curChooseIdxArr.last ?? 0
+                let curChooseIdx = self.currentChooseIdx
+                if curChooseIdx > firstIdx {
+                    self.updateItemStyleToNormal(at: firstIdx)
+                } else {
+                    self.updateItemStyleToNormal(at: lastIdx)
+                }
+            }
         } else {
             // 单选模式
             if idx != self.currentChooseIdx {
